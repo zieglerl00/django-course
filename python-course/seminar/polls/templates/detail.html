@@ -1,0 +1,14 @@
+<h2>{{ question.text }}</h2>
+
+{% if message %}
+    <p style="color: #b92222">{{ message }}</p>
+{% endif %}
+
+<form action="/{{ question.id }}/vote/" method="post">
+    {% csrf_token %}
+    {% for c in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ c.id }}" value="{{ c.id }}">
+        <label for="choice{{ c.id }}">{{ c.text }}</label>
+    {% endfor %}
+    <input type="submit" value="OK">
+</form>

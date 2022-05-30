@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if qlist %}
+        <ul>
+            {% for question in qlist %}
+                <li>({{ question.date }}) <a href="{{ question.id }}"> {{ question.text }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Keine Polls!</p>
+    {% endif %}
+</body>
+</html>
